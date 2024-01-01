@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2xd75jas6bhu"]
+
+[ext_resource type="Script" path="res://analog_clock/analog_clock.gd" id="1_ehjso"]
+
+[node name="AnalogClock" type="Control" node_paths=PackedStringArray("clock_frame")]
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 3
+anchor_right = 0.4
+anchor_bottom = 0.8
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ehjso")
+clock_frame = NodePath("Panel/MarginContainer/ClockFrame")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ClockFrame" type="Control" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="HourHand" type="Line2D" parent="Panel/MarginContainer/ClockFrame"]
+points = PackedVector2Array(0, 0, 0, 0)
+width = 4.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="MinuteHand" type="Line2D" parent="Panel/MarginContainer/ClockFrame"]
+points = PackedVector2Array(0, 0, 0, 0)
+width = 4.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="SecondHand" type="Line2D" parent="Panel/MarginContainer/ClockFrame"]
+points = PackedVector2Array(0, 0, 0, 0)
+width = 2.0
+default_color = Color(1, 0, 0, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
