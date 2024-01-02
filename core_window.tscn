@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://bu1h1w5py6cvy"]
+[gd_scene load_steps=3 format=3 uid="uid://bu1h1w5py6cvy"]
+
+[ext_resource type="PackedScene" uid="uid://b2xd75jas6bhu" path="res://analog_clock/analog_clock.tscn" id="1_q46ny"]
+[ext_resource type="PackedScene" uid="uid://do3il40wsrdcx" path="res://weather_display/weather_display.tscn" id="2_ab3vt"]
 
 [node name="CoreWindow" type="Control"]
 layout_mode = 3
@@ -7,3 +10,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="AnalogClock" parent="." instance=ExtResource("1_q46ny")]
+layout_mode = 1
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 160.0
+offset_bottom = 160.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="WeatherDisplay" parent="." instance=ExtResource("2_ab3vt")]
+layout_mode = 1
+offset_top = 168.0
+offset_bottom = 140.0
