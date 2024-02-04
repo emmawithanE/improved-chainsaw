@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://analog_clock/analog_clock.gd" id="1_ehjso"]
 
 [node name="AnalogClock" type="Control" node_paths=PackedStringArray("clock_frame")]
-custom_minimum_size = Vector2(160, 160)
 layout_mode = 3
 anchor_right = 0.4
 anchor_bottom = 0.8

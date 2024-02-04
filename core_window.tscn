@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bu1h1w5py6cvy"]
+[gd_scene load_steps=4 format=3 uid="uid://bu1h1w5py6cvy"]
 
 [ext_resource type="PackedScene" uid="uid://b2xd75jas6bhu" path="res://analog_clock/analog_clock.tscn" id="1_q46ny"]
 [ext_resource type="PackedScene" uid="uid://do3il40wsrdcx" path="res://weather_display/weather_display.tscn" id="2_ab3vt"]
+[ext_resource type="PackedScene" uid="uid://ma6sbw1bjrea" path="res://sticky_notes/sticky_notes.tscn" id="3_6lffe"]
 
 [node name="CoreWindow" type="Control"]
 layout_mode = 3
@@ -16,12 +17,21 @@ layout_mode = 1
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_right = 160.0
-offset_bottom = 160.0
+offset_right = 152.0
+offset_bottom = 152.0
 grow_horizontal = 1
 grow_vertical = 1
 
 [node name="WeatherDisplay" parent="." instance=ExtResource("2_ab3vt")]
 layout_mode = 1
-offset_top = 168.0
-offset_bottom = 140.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 160.0
+offset_right = 152.0
+offset_bottom = 192.0
+
+[node name="StickyNotes" parent="." instance=ExtResource("3_6lffe")]
+layout_mode = 1
+offset_left = 160.0
+offset_right = -168.0
+offset_bottom = -128.0
