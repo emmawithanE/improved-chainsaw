@@ -3,8 +3,8 @@ extends Control
 @export var vbox : VBoxContainer
 
 var colours : int = 9
-var rows : int = 6
-var row_shift : float = 60
+var rows : int = 12
+var row_shift : float = 30
 var hue_shift : float = 10
 var sat_shift : float = -10
 var val_shift : float = 10
