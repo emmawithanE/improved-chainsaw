@@ -21,6 +21,12 @@ func check_next_token() -> ASTToken:
 		return ASTEOF.new()
 	elif unparsed_text.begins_with("\n"):
 		return ASTEOL.new()
+	elif unparsed_text.begins_with("**"):
+		return ASTStrong.new()
+	elif unparsed_text.begins_with("*"):
+		return ASTEmphasis.new()
+	elif unparsed_text.begins_with("~~"):
+		return ASTDel.new()
 	else:
 		return ASTText.new()
 
@@ -28,13 +34,23 @@ func get_token() -> ASTToken:
 	var next_token = check_next_token()
 	
 	if next_token is ASTText:
-		next_token.name = "Text"
 		next_token.generate(self)
 		return next_token
 	elif next_token is ASTEOF:
 		return next_token
 	elif next_token is ASTEOL:
+		return next_token
+	elif next_token is ASTEmphasis:
 		consume_characters()
+		next_token.generate(self)
+		return next_token
+	elif next_token is ASTStrong:
+		consume_characters(2)
+		next_token.generate(self)
+		return next_token
+	elif next_token is ASTDel:
+		consume_characters(2)
+		next_token.generate(self)
 		return next_token
 	else:
 		assert(false, "token type not generated")
