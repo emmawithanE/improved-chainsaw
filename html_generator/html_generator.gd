@@ -14,3 +14,5 @@ func run():
 	ast_parent.add_child(body)
 	
 	body.generate(markdown_parser)
+	
+	print(body.print_content())

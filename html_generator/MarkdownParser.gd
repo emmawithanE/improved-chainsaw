@@ -9,7 +9,7 @@ func load_data() -> void:
 	assert(file, "Parser has no file to parse")
 	
 	var open_file := FileAccess.open(file, FileAccess.READ)
-	unparsed_text = open_file.get_as_text()
+	unparsed_text = open_file.get_as_text(true)
 
 
 #--------

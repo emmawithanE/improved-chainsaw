@@ -9,3 +9,11 @@ func generate(parser : MarkdownParser):
 		add_child(parser.get_token())
 	# Discard EOL
 	parser.get_token()
+
+func print_content() -> String:
+	var content = "<p>"
+	for child in get_children():
+		if child is ASTToken:
+			content += child.print_content()
+	content += "</p>\n"
+	return content
