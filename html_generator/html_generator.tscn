@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4ipnu81f2676"]
+
+[ext_resource type="Script" path="res://html_generator/html_generator.gd" id="1_h8lv1"]
+[ext_resource type="Script" path="res://html_generator/MarkdownParser.gd" id="1_t7kvy"]
+
+[node name="HTMLGenerator" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h8lv1")
+
+[node name="MarkdownParser" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_t7kvy")
+file = "res://html_generator/test_input.txt"
+
+[node name="ASTParent" type="Node" parent="."]
+unique_name_in_owner = true
