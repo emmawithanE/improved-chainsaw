@@ -9,7 +9,7 @@ bg_color = Color(1, 1, 1, 0.12549)
 bg_color = Color(1, 1, 1, 1)
 
 [node name="ColourUnit" type="PanelContainer" node_paths=PackedStringArray("hue_field", "sat_field", "val_field", "display_panel")]
-custom_minimum_size = Vector2(128, 80)
+custom_minimum_size = Vector2(128, 40)
 offset_right = 128.0
 offset_bottom = 80.0
 size_flags_horizontal = 4
@@ -25,6 +25,7 @@ display_panel = NodePath("VBoxContainer/Panel")
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 36)
 layout_mode = 2
 
 [node name="Hue" type="TextEdit" parent="VBoxContainer/HBoxContainer"]
@@ -52,6 +53,7 @@ text = "0"
 scroll_fit_content_height = true
 
 [node name="Panel" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_4jpko")

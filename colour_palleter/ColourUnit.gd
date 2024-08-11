@@ -25,6 +25,9 @@ var col : Color
 
 signal colour_changed()
 
+func setters_visible(vis : bool):
+	$VBoxContainer/HBoxContainer.visible = vis
+
 func init(parent : ColourUnit, h : float, s : float, v : float):
 	_parent = parent
 	
@@ -51,8 +54,13 @@ func regenerate_colour() -> void:
 	col = new_colour
 	
 	display_panel.modulate = col
+	display_panel.tooltip_text = tooltip(col)
 	
 	colour_changed.emit()
+
+func tooltip(col : Color):
+	var string = str(round(col.h * 360)) + ", " + str(round(col.s * 100)) + ", " + str(round(col.v * 100))
+	return string
 
 func get_colour() -> Color:
 	return col
