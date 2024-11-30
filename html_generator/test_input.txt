@@ -1,5 +1,7 @@
+# Header
 This is line one
 This is line 2
 This line will one day have *italics*
+## Header 2
 This line will be **bold**
 This line ~~is deleted~~ has been changed :)

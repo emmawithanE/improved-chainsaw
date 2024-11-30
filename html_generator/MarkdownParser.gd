@@ -27,6 +27,8 @@ func check_next_token() -> ASTToken:
 		return ASTEmphasis.new()
 	elif unparsed_text.begins_with("~~"):
 		return ASTDel.new()
+	elif unparsed_text.begins_with("#"):
+		return ASTHeading.new()
 	else:
 		return ASTText.new()
 
@@ -52,6 +54,9 @@ func get_token() -> ASTToken:
 		consume_characters(2)
 		next_token.generate(self)
 		return next_token
+	elif next_token is ASTHeading:
+		next_token.generate(self)
+		return next_token
 	else:
 		assert(false, "token type not generated")
 		return next_token
@@ -61,6 +66,9 @@ func consume_characters(count := 1) -> String:
 	unparsed_text = unparsed_text.substr(count)
 	return chars
 
+func get_next_chars(count := 1) -> String:
+	return unparsed_text.substr(0, count)
+
 func get_text_string() -> String:
 	var text = ""
 	while check_next_token() is ASTText:
@@ -68,6 +76,11 @@ func get_text_string() -> String:
 	return text
 
 func get_paragraph() -> ASTToken:
-	var paragraph := ASTParagraph.new()
-	paragraph.generate(self)
-	return paragraph
+	if unparsed_text.begins_with("#"):
+		var heading = ASTHeading.new()
+		heading.generate(self)
+		return heading
+	else:
+		var paragraph := ASTParagraph.new()
+		paragraph.generate(self)
+		return paragraph
